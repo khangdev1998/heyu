@@ -1,0 +1,105 @@
+@mixin bgc($bg: red) {
+    background-color: $bg;
+  }
+  
+  @mixin size($w, $h: $w) {
+    width: $w;
+    height: $h;
+  }
+  
+  @mixin scrollsnap($auto-column: 0, $gap: 0, $display: block) {
+    display: grid;
+    justify-content: flex-start;
+    grid-auto-columns: $auto-column;
+    grid-auto-flow: column;
+    grid-gap: $gap;
+    overflow: auto;
+    overflow-y: hidden;
+    -ms-scroll-snap-type: x mandatory;
+        scroll-snap-type: x mandatory;
+    scroll-snap-stop: always;
+    touch-action: manipulation;
+    -webkit-overflow-scrolling: touch;
+    grid-template-columns: unset;
+    &::-webkit-scrollbar {
+      width: 1em;
+      height: 5px;
+      display: $display;
+    }
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 4px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: red;
+    }
+    & > * {
+      scroll-snap-align: start;
+    }
+  }
+  
+  @mixin lineClamp($lc: 1) {
+    display: -webkit-box;
+    -webkit-line-clamp: $lc;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+  }
+  
+  @mixin flexbox($config: ()) {
+    $config: extend(
+      (
+        align-items: stretch,
+        justify-content: flex-start,
+        flex-direction: row,
+        display: flex,
+        flex-wrap: nowrap,
+      ),
+      $config
+    );
+    display: map-get($config, display);
+    align-items: map-get($config, align-items);
+    justify-content: map-get($config, justify-content);
+    flex-direction: map-get($config, flex-direction);
+    flex-wrap: map-get($config, flex-wrap);
+  }
+  
+  @mixin blockCenter($set: "left") {
+    position: absolute;
+    // Trường hợp canh ngang
+    @if $set == "left" {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    //Trường hợp canh dọc
+    @if $set == "top" {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    //Trường hợp cả 2 ngang và dọc
+    @if $set == "both" {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  
+  // Responsive screen PC Mobile
+  @mixin maxWidth($breakpoint) {
+    @media only screen and (max-width: $breakpoint) {
+      @content;
+    }
+  }
+  
+  @mixin minWidth($breakpoint) {
+    @media only screen and (min-width: $breakpoint) {
+      @content;
+    }
+  }
+  
+  @mixin minMaxWidth($min, $max) {
+    @media only screen and (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  }

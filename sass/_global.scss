@@ -1,0 +1,42 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    line-height: 1;
+    font-size: 18px;
+    // height: 1500px;
+    
+}
+
+html {
+    font-family: $primary-font;
+}
+
+.container {
+    max-width: $wrapper + 30;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 auto;
+}
+
+.heading {
+    font-size: 60px;
+    font-weight: bold;
+    color: $light-color;
+    line-height: 1.2;
+}
+
+.btn {
+    font-size: 18px; 
+    border-radius: 40px;
+    padding: 16px 52px;
+    word-break: break-all;
+    @include bgc($light-color);
+    color: $primary-color;
+    font-weight: bold;
+    display: inline-block;
+    text-decoration: none;
+}

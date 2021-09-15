@@ -1,0 +1,67 @@
+.header {
+    background-image: linear-gradient( to bottom, $primary-color ,$secondary-color );
+    min-height: 935px;
+    clip-path: polygon(0 0, 100% 0, 100% 76%, 0 100%);
+    z-index: -1;
+  &__container {
+    max-width: 1610px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 auto;
+    @include flexbox(
+      (
+        justify-content: space-between,
+        align-items: baseline,
+      )
+    );
+  }
+  &-top {
+      padding-top: 16px;
+  }
+  &-top__logo {
+    font-size: 50px;
+    color: $light-color;
+    text-decoration: none;
+    font-weight: bold;
+    word-break: break-all;
+  }
+  &-menu__list {
+    list-style-type: none;
+  }
+  &-menu__items {
+    display: inline-block;
+    &:not(:first-child) {
+      margin-left: 65px;
+    }
+  }
+  &-menu__link {
+    color: $light-color;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+  &-content {
+    margin-top: 200px;
+    max-width: 560px;
+  }
+  &-content__desc {
+    margin: 32px 0 100px;
+    font-weight: 300;
+    font-size: 24px;
+    color: $light-color;
+    span {
+      font-weight: bold;
+    }
+  }
+  &-app {
+    position: absolute;
+    right: 0;
+    top: -90px;
+    pointer-events: none;
+    z-index: 10;
+  }
+  .container {
+      position: relative;
+  }
+}
