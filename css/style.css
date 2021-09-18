@@ -428,7 +428,7 @@ html {
 .people-quote::after {
   content: "";
   position: absolute;
-  bottom: -7.5px;
+  bottom: -8.7px;
   left: 20px;
   display: inline-block;
   width: 15px;
