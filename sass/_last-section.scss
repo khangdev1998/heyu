@@ -1,0 +1,236 @@
+.subscribe {
+  margin: 190px 0 145px;
+  text-align: center;
+  &-content {
+    max-width: 910px;
+    margin: 0 auto;
+  }
+  &-form {
+    margin: 78px auto 0;
+    @include flexbox(
+      (
+        justify-content: space-between,
+      )
+    );
+    max-width: 570px;
+    height: 55px;
+    border-radius: 40px;
+    @include bgc(#f8f8f8);
+    input {
+      @include size(100%);
+      border: none;
+      outline: none;
+      padding: 0 24px;
+      font-size: unset;
+      font-family: unset;
+      @include bgc(transparent);
+      &::-webkit-input-placeholder {
+        color: $dark-light;
+        font-size: 18px;
+      }
+      &::-moz-input-placeholder {
+        color: $dark-light;
+        font-size: 18px;
+      }
+    }
+  }
+  .heading {
+    color: $dark-color;
+    margin-bottom: 19px;
+    word-break: break-all;
+  }
+  .text {
+    font-size: unset;
+  }
+  @include maxWidth(1023px) {
+    margin: 120px 0;
+  }
+  @include maxWidth(767px) {
+    margin: 60px 0;
+    &-form {
+      height: 45px;
+      margin: 50px auto 0;
+      input::-webkit-input-placeholder {
+        color: $dark-light;
+        font-size: 14px;
+      }
+      input::-moz-input-placeholder {
+        color: $dark-light;
+        font-size: 14px;
+      }
+    }
+    .text {
+      font-size: 14px;
+    }
+  }
+}
+
+.download {
+  padding: 100px 0 140px;
+  border: 1px solid #e0e0e0;
+  border-left: 0;
+  border-right: 0;
+  text-align: center;
+  &__logo {
+    background-image: linear-gradient(
+      to bottom,
+      $primary-color,
+      $secondary-color
+    );
+    border-radius: 40px;
+    @include size(160px);
+    word-break: break-all;
+    color: $light-color;
+    font-size: 65px;
+    font-weight: bold;
+    box-shadow: rgba(226, 36, 57, 0.6) 0px 5px 29px 0px;
+    @include flexbox(
+      (
+        display: inline-flex,
+        justify-content: center,
+        align-items: center,
+      )
+    );
+  }
+  &-content {
+    padding: 50px 0;
+  }
+  &__store {
+    img {
+      max-width: 100%;
+    }
+  }
+  .heading {
+    word-break: break-all;
+    color: $dark-color;
+    margin-bottom: 34px;
+  }
+  @include maxWidth(767px) {
+    &__store img {
+      max-width: 40%;
+    }
+  }
+  @include maxWidth(1023px) {
+    padding: 50px 0;
+    &__logo {
+      @include size(80px);
+      border-radius: 20px;
+      font-size: 40px;
+    }
+    &-content {
+      padding: 25px 0;
+    }
+  }
+}
+
+.footer {
+  padding: 40px 55px;
+  &__container {
+    @include flexbox(
+      (
+        justify-content: space-between,
+        align-items: center,
+      )
+    );
+  }
+  &-list {
+    list-style-type: none;
+  }
+  &-list__items {
+    display: inline-block;
+    & + & {
+      margin-left: 64px;
+    }
+  }
+  &-list__link {
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+    color: $dark-color;
+    display: inline-block;
+    word-break: break-all;
+  }
+  &-main {
+      position: relative;
+  }
+  &__select {
+    font-family: unset;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+    outline: none;
+    border: none;
+    @include bgc(#ecebeb);
+    padding: 14.4px 55.4px;
+    color: $dark-color;
+    font-size: unset;
+    border-radius: 40px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+  }
+  &__down {
+      @include blockCenter("top");
+      right: 1.8rem;
+      pointer-events: none;
+  }
+  @include maxWidth(1023px) {
+    padding: 20px;
+    &-list__items:not(:first-child) {
+      margin-left: 20px;
+    }
+    &-list__link {
+      font-size: 14px;
+    }
+    &__select {
+      font-size: 12px;
+      padding: 12px 40px;
+    }
+    &__down {
+      right: 1.2rem;
+    }
+  }
+  @include maxWidth(767px) {
+    padding: 20px 12px;
+    &__container {
+      @include flexbox((
+        flex-direction: column,
+        align-items: center
+      ));
+    }
+    &-list__items:not(:first-child) {
+      margin-left: 10px;
+    }
+    &-main {
+      margin-top: 20px; 
+    }
+  }
+  @include maxWidth(424px) {
+    padding: 20px 8px;
+
+    &-list__link {
+      font-size: 12px;
+    }
+  }
+}
+
+.copyright {
+  text-align: center;
+  padding-bottom: 40px;
+  &__dev {
+    text-decoration: none;
+    color: $primary-color;
+    transition: 0.2s;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  @include maxWidth(1023px) {
+    font-size: 16px;
+    padding-bottom: 25px;
+  }
+  @include maxWidth(424px) {
+   font-size: 14px;
+  }
+}

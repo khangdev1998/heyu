@@ -1,0 +1,122 @@
+.people {
+  margin-top: 180px;
+  padding-top: 90px;
+  border-top: 1px solid $border-color;
+  text-align: center;
+  .heading {
+    color: $dark-color;
+  }
+  &-list {
+    padding-top: 144px;
+    @include flexbox(
+      (
+        justify-content: space-between,
+      )
+    );
+  }
+  &-list__items {
+    width: calc(33.3333% - 20px);
+  }
+  &-quote {
+    border: 1px solid $border-color;
+    padding: 20px 30px;
+    text-align: left;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 24px;
+      top: 100%;
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 12px 12px 0 12px;
+      border-color: $border-color transparent transparent transparent;
+    }
+    &--direction {
+        transform: translateY(-30px);
+        box-shadow: rgb(100 100 111 / 20%) 0 25px 50px 0px;
+        &::after {
+            content: "";
+            border-color: white
+            transparent transparent transparent;
+        }
+    }
+  }
+  &-quote__domain {
+    display: block;
+    padding-top: 18px;
+    color: #e1203b;
+    font-weight: bold;
+  }
+  &-ceo {
+    padding-top: 30px;
+    text-align: left;
+    @include flexbox(
+      (
+        justify-content: flex-start,
+        align-items: center,
+      )
+    );
+    span:first-child {
+      margin-bottom: 6px;
+      display: block;
+    }
+  }
+  &-ceo__avatar {
+    display: inline-block;
+    object-fit: cover;
+    border-radius: 50%;
+    flex-shrink: 0;
+    @include size(68px);
+  }
+  &-ceo__main {
+    padding-left: 20px;
+  }
+  &-seo__name {
+    color: $dark-color;
+    font-weight: 600;
+    @include lineClamp();
+  }
+  &-seo__job {
+    color: #7a8696;
+    font-weight: 500;
+    word-break: break-all;
+  }
+  .text {
+    font-style: italic;
+    color: $dark-light;
+    line-height: calc(32 / 18);
+  }
+  @include maxWidth(1023px) {
+    margin-top: 60px;
+    padding-top: 0;
+    &-list {
+      padding-top: 100px;
+    }
+    &-quote__domain {
+      font-size: 15px;
+    }
+  }
+  @include maxWidth(767px) {
+    margin-top: 60px;
+    padding-top: 0;
+    &-list {
+      padding-top: 50px;
+      @include scrollsnap(90%, 15px, none)
+    }
+    &-list__items {
+      width: 100%;
+    }
+    &-quote {
+      &--direction {
+        transform: initial;
+        box-shadow: unset;
+      }
+    }
+    .text {
+      font-size: 14px !important;
+    }
+  }
+}
